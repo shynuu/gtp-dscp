@@ -67,9 +67,11 @@ func run(ipv4 string, offset int) {
 				},
 			},
 			&u32.IPV4Header{
-				DSCP: d,
+				Version: 4,
+				DSCP:    d,
 				Set: &u32.IPV4Fields{
-					DSCP: true,
+					DSCP:    true,
+					Version: true,
 				},
 			},
 		}
