@@ -65,7 +65,7 @@ func (ipv4 *IPV4Header) Marshall() []byte {
 
 	bytes = append(bytes, (ipv4.Version<<4)+ipv4.IHL)
 
-	bytes = append(bytes, (ipv4.DSCP<<6)+ipv4.ECN)
+	bytes = append(bytes, (ipv4.DSCP<<2)+ipv4.ECN)
 
 	bytes = append(bytes, Uint16ToUint8(ipv4.TotalLength)...)
 

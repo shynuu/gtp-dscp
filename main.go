@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"log"
 	"net"
 	"os"
@@ -41,7 +42,7 @@ func run(ipv4 string, offset int) {
 	var dscp []uint8 = []uint8{0x0a, 0x0c, 0x2e}
 
 	for _, d := range dscp {
-
+		fmt.Println(d)
 		protocols := []u32.Protocol{
 			&u32.IPV4Header{
 				Protocol: u32.PROTO_UDP,
@@ -67,11 +68,9 @@ func run(ipv4 string, offset int) {
 				},
 			},
 			&u32.IPV4Header{
-				Version: 4,
-				DSCP:    d,
+				DSCP: d,
 				Set: &u32.IPV4Fields{
-					DSCP:    true,
-					Version: true,
+					DSCP: true,
 				},
 			},
 		}
