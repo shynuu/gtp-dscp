@@ -143,9 +143,9 @@ func (ipv4 *IPV4Header) GetMask(offset int, value byte) (string, byte) {
 		if ipv4.Set.ECN && ipv4.Set.DSCP {
 			return "FF", 0xFF & value
 		} else if ipv4.Set.ECN {
-			return "03", 0x0F & value
+			return "03", 0x03 & value
 		} else if ipv4.Set.DSCP {
-			return "FC", 0xF0 & value
+			return "FC", 0xFC & value
 		}
 		return "00", 00
 

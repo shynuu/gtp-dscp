@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"log"
 	"net"
 	"os"
@@ -76,6 +77,7 @@ func run(ipv4 string, offset int) {
 		iface, _ := FindInterface(ipv4)
 
 		var m = u32.NewU32(&protocols, d)
+		fmt.Println(m.BuildMatches())
 		m.RunIface(iface)
 
 	}
